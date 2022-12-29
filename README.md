@@ -4,13 +4,10 @@
 - Provides notification methods usable in OBS with an HTML page.
 
 ![Main Donation Page](media/index.png)
-_Main Donation Page with Dollar amounts_
 
 ![Payment Page](media/pay.png)
-_Click to copy payment address_
 
 ![Superchat Message Page](media/view.png)
-_Click to mark message as read_
 
 # Added Features
 - XMR to USD conversion
