@@ -24,7 +24,7 @@ To see a working instance of shadowchat, see [xmr.lukesmith.xyz](https://xmr.luk
 1. ```apt install golang```
 2. ```git clone https://git.sr.ht/~anon_/shadowchat```
 4. ```cd shadowchat```
-2. ```go get github.com/skip2/go-qrcode```
+2. ```go install github.com/skip2/go-qrcode@latest```
 5. ```go mod init shadowchat && go mod tidy```
 6. edit ```config.json```
 7. ```go run main.go```
@@ -50,8 +50,7 @@ This is designed to be run on a cloud server with nginx proxypass for TLS.
 # Future plans
 - Blocklist for naughty words
 - Widget for OBS displaying top donators
-- Remove discord and streamlabs integration features
-- Settings page for on-the-fly changes (minimum dono amount, hide all amounts, etc.)
+- Settings page for on-the-fly changes (minimum donation amount, hide all amounts, etc.)
 
 # License
 GPLv3
