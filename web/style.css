@@ -1,16 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,700;0,900;1,700&family=Unbounded:wght@900&display=swap');
+
 body {
   background: #12151C;
   text-align: left;
   color: white;
   width: 25em;
-  margin: 0 auto;
+  margin: 100px auto;
   padding-right: 20px;
-  font-family: Arial;
+  font-family: Inter Tight;
 }
 button,input,textarea {
-  font-family: Arial;
+  font-family: Inter Tight;
   background: #262b3b;
   border: none;
+  border-radius: 0.125em;
   color: white;
   height: 36px;
   outline: none;
@@ -20,6 +23,15 @@ button,input,textarea {
   font-size: 16px;
   margin: 6px;
   width: 100%
+}
+span.paybar {
+  width: 106%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: space-between;
+  align-items: center;
 }
 textarea {
   resize: vertical;
@@ -31,24 +43,43 @@ textarea {
   textarea { height: 72px }
 }
 #message { padding-top: 8px}
-#submit  { 
+#submit {
   background: #004cff;
   width: 45%;
-  align-items:right;
   border-radius: 0.125rem;
+  display: flex;
+  /* justify-content: flex-start; */
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+}
+#pay {
+  line-height: 36px;
+  text-align: center;
+}
+.clicked {
+  filter: invert(1);
 }
 small,::placeholder {
   color: #70799b;
   opacity: 1;
+  margin-left: 6px;
 }
 label {
   -moz-user-select: none;
   -khtml-user-select: none;
   -webkit-user-select: none;
+  margin-left: 6px;
 }
 svg,img {
   height: 75%;
   vertical-align: middle;
+}
+.qr {
+  margin: 7px 7px 7px 0px;
+  width: 100%;
 }
 #showAmount {
   vertical-align: middle;
@@ -57,6 +88,7 @@ svg,img {
 blockquote {
   background: #262b3b;
   border: none;
+  border-radius: 0.125em;
   color: white;
   outline: none;
   font-size: 16px;
@@ -80,4 +112,17 @@ label {
 }
 b,a {
   color: #EF4444;
+}
+b {
+  font-weight: 800;
+  text-shadow: 0px 2px 4px black;
+  filter: drop-shadow(2px 4px 6px black);
+}
+h2 {
+  text-shadow: 0px 2px #004cff;
+  font-weight: 800;
+  text-align: left;
+  font-family: Unbounded;
+  margin-left: 6px;
+  width: 100%;
 }

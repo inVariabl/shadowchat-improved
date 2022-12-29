@@ -10,7 +10,7 @@ body {
   color: white;
   margin: none;
   padding: none;
-  font-family: Arial;
+  font-family: Inter Tight;
   font-size: 16px
 }
 @media only screen and (max-device-widtd: 830px) {
@@ -39,7 +39,8 @@ blockquote {
   word-wrap: break-word;
 }
 </style>
+<link rel=stylesheet href=style.css>
 </head>
-{{range .Display}}<blockquote>{{.}}</blockquote>{{end}}
+{{range .Display}}<blockquote onclick="style.filter='opacity(50%)'" ondblclick="style.filter=''">{{.}}</blockquote>{{end}}
 </body>
 </html>

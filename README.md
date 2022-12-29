@@ -1,7 +1,23 @@
-# Shadowchat
+# Shadowchat Improved
 - Self-hosted, non-custodial and minimalist Monero (XMR) superchat system written in Go.
 - Provides an admin view page to see donations with corresponding comments.
 - Provides notification methods usable in OBS with an HTML page.
+
+![Main Donation Page](media/index.png)
+_Main Donation Page with Dollar amounts_
+![Payment Page](media/pay.png)
+_Click to copy payment address_
+![Superchat Message Page](media/view.png)
+_Click to mark message as read_
+
+# Added Features
+- XMR to USD conversion
+- Word count
+- Click-to-copy payment address
+- Mark superchat messages as read
+- UI improvements
+
+---
 
 To see a working instance of shadowchat, see [xmr.lukesmith.xyz](https://xmr.lukesmith.xyz).
 
@@ -42,7 +58,3 @@ GPLv3
 
 ### Origin
 This comes from [https://git.sr.ht/~anon_/shadowchat](https://git.sr.ht/~anon_/shadowchat) and is not Luke's original work.
-
-### Donate
-sir,,thank you
-`84U6xHT7KVaWqdKwc7LiwkAXKCS2f2g6b6SFyt1G7u6xWqLBYTVXH2aEsEPho64uPFJQS6KHqSg7XLEfEkqvjdgd9H1vQSm`

@@ -4,6 +4,33 @@
   <title>XMR Superchat</title>
   <link rel=icon href=xmr.svg>
   <link rel=stylesheet href=style.css>
+  <script>
+    fetch("https://api.coingecko.com/api/v3/simple/price?ids=monero&vs_currencies=usd") // XMR Price API
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`Request failed with status ${response.status}`)
+    }
+    return response.json()
+  })
+  .then(data => {
+      xmr = data.monero.usd;
+      console.log("1 XMR = $" + xmr);
+  })
+  .catch(error => console.log(error))
+
+function xmrToUSD() {
+    document.querySelector("body > form > label:nth-child(6)").innerText = "$" + (document.querySelector("#amount").value * xmr).toFixed(2);
+}
+
+function wordCount() {
+    let count = document.querySelector("#message").textLength;
+    document.querySelector("body > form > label:nth-child(10)").innerText = count + ' / {{.MaxChar}}';
+}
+
+function buttonClicked() {
+    document.querySelector("#submit").classList.add("clicked");
+}
+  </script>
 </head>
 
 <body>
@@ -12,14 +39,21 @@
   <form action="/pay" method="POST">
     <label for="name">Name:</label><br>
     <input placeholder="Anonymous" type="text" id="name" name="name" maxlength="25"><br>
-    <label for="amount">Amount:</label><br>
-    <input type="number" id="amount" name="amount" step="0.0001" min="{{.MinAmnt}}" placeholder="{{.MinAmnt}} Minimum">
-    <label for="message">Message:</label><br>
-    <textarea id="message" name="message" placeholder="{{.MaxChar}} character max" rows="6" maxlength="{{.MaxChar}}"></textarea><br>
-    <button id="submit" type="submit"><img src=xmr.svg> Pay</button>
-    <input type="checkbox" id="showAmount" name="showAmount" value="true" {{.Checked}}>
-    <small><label for="showAmount">Show amount on stream?</label><small>
+    <label for="amount">Amount: </label>
+    <label for="usd" style="color: #70799B;"></label><br>
+    <input type="number" id="amount" name="amount" step="0.0001" min="{{.MinAmnt}}" placeholder="{{.MinAmnt}} Minimum" oninput="xmrToUSD()">
+    <label for="message">Message:</label>
+    <label for="message_count" style="color: #70799B;"></label><br>
+    <textarea id="message" name="message" placeholder="{{.MaxChar}} character max" rows="6" maxlength="{{.MaxChar}}" oninput="wordCount()"></textarea><br>
+    <span class="paybar">
+    <button id="submit" type="submit" onclick="buttonClicked()"><img src=xmr.svg><span style="width: 10px;"></span>Pay</button>
+    <span>
+      <input type="checkbox" id="showAmount" name="showAmount" value="true" {{.Checked}}>
+      <small><label for="showAmount">Show amount on stream?</label></small>
+    </span>
+    </span>
   </form>
+
 </body>
 
 </html>

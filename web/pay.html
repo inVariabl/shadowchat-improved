@@ -6,7 +6,7 @@
 <link rel=stylesheet href=style.css>
 </head>
 <body>
-  <h2>Send at least <b>{{.Amount}}</b> XMR to confirm superchat:</h2>
+   <h2>Send at least <b>{{.Amount}}</b><br> XMR to confirm superchat:</h2>
   <label>Name:</label><br>
   <blockquote>
     {{.Name}}
@@ -15,18 +15,31 @@
   <blockquote>
     {{.Message}}
   </blockquote>
-  <label>Payment Address</label><br>
-  <blockquote style="user-select: all">
+  <label>Payment Address:</label>
+  <label for="address" style="color: #70799B;"></label><br>
+  <blockquote style="user-select: all" onclick="copyContent()">
     {{.Address}}
   </blockquote>
-  <label>Or scan:</label><br>
-  <blockquote>
-  <img src="data:image/png;base64,{{.QRB64}}"/>
+  <blockquote onclick="copyContent()">
+  <img src="data:image/png;base64,{{.QRB64}}" class="qr"/>
   </blockquote>
   <label>Checking for payment (every 3 seconds) <a href="/check?{{.CheckURL}}" target="checkframe">Manual check</a></label><br>
   <blockquote>
     <iframe allowtransparency="true" name="checkframe" frameBorder="0" scrolling="no" src="/check?{{.CheckURL}}"></iframe>
   </blockquote>
-  <small>You must stay on this screen until transaction is seen. Do not manually refresh this page.</small><br>
+  <small>You must stay on this screen until transaction is seen.</small><br>
+  <small>Do not manually refresh this page.</small><br>
+<script>
+  let address = document.querySelector("body > blockquote:nth-child(11)").innerText;
+  const copyContent = async (address) => {
+    try {
+        await navigator.clipboard.writeText(address);
+          console.log('Content copied to clipboard');
+          document.querySelector("body > label:nth-child(9)").innerText = 'Copied to Clipboard!';
+    } catch (err) {
+      console.error('Failed to copy: ', err);
+    }
+  }
+</script>
 </body>
 </html>
