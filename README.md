@@ -5,8 +5,10 @@
 
 ![Main Donation Page](media/index.png)
 _Main Donation Page with Dollar amounts_
+
 ![Payment Page](media/pay.png)
 _Click to copy payment address_
+
 ![Superchat Message Page](media/view.png)
 _Click to mark message as read_
 
@@ -47,6 +49,7 @@ This is designed to be run on a cloud server with nginx proxypass for TLS.
 
 # OBS
 - Add a Browser source in obs and point it to `https://example.com/alert?auth=adminadmin`
+
 # Future plans
 - Blocklist for naughty words
 - Widget for OBS displaying top donators
